@@ -23,6 +23,7 @@
   - [Consistency](distributed_systems/05_consistancy.md)
   - [Blockchains](distributed_systems/06_blockchains.md)
 - [Git](git/index.md)
+- [Gpfs](gpfs/index.md)
 - [Gpu](gpu/index.md)
 - [Kubernetes](kubernetes/index.md)
   - [Cluster](kubernetes/01_cluster.md)
