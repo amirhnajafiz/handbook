@@ -30,7 +30,7 @@ Object Storage Daemons (OSDs) store objects. An OSD is a process that runs on a 
 
 ### Pools
 
-A pool is an abstraction that can be designated as either “replicated” or “erasure coded”. In Ceph, the method of data protection is set at the pool level. Ceph offers and supports two types of data protection: replication and erasure coding. Objects are stored in pools. “A storage pool is a collection of storage volumes. A storage volume is the basic unit of storage, such as allocated space on a disk or a single tape cartridge. The server uses the storage volumes to store backed-up, archived, or space-managed files.
+A pool is an abstraction that can be designated as either “replicated” or “erasure coded”. In Ceph, the method of data protection is set at the pool level. Ceph offers and supports two types of data protection: replication and erasure coding. Objects are stored in pools. A storage pool is a collection of storage volumes. A storage volume is the basic unit of storage, such as allocated space on a disk or a single tape cartridge. The server uses the storage volumes to store backed-up, archived, or space-managed files.
 
 #### Placement Groups
 
