@@ -2,6 +2,18 @@
 
 Debugging is a critical skill for maintaining healthy Kubernetes clusters. Kubernetes provides several tools and techniques to help you diagnose and resolve issues with your pods and containers.
 
+## 0. Apply a pod
+
+Spin up a standalone pod specifically for network debugging, or run it as a sidecar alongside your application. `nicolaka/netshoot` is a popular image containing a comprehensive set of network troubleshooting tools.
+
+```sh
+kubectl run debugging-pod \
+  --rm -i --tty \
+  --image nicolaka/netshoot \
+  --restart=Never \
+  -- sh
+```
+
 ## 1. Using `kubectl debug`
 
 The Kubernetes-native answer to debugging running containers is to use `kubectl debug`. This command spins up a new container into a running pod, allowing you to troubleshoot issues interactively.
@@ -64,7 +76,3 @@ kubectl debug -it <pod-name> --image=nicolaka/netshoot --target=<container-name>
 
 - [K8S debugging](https://kubernetes.io/docs/tasks/debug/debug-application/debug-running-pod/)
 - [Netshoot image](https://github.com/nicolaka/netshoot)
-
----
-
-*Tip: Add your own screenshots to `public/` as `debugging-overview.png`, `debug-kubectl-example.png`, and `debug-pod-inspection.png` for richer documentation.*
