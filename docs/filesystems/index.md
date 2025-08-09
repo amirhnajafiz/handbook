@@ -16,6 +16,24 @@ File systems handle both the physical and logical operations associated with man
 
 ![diagram](images/filesystem_diagram.png)
 
+Think of it like a library’s catalog system:
+
+- The library building = the storage device
+- The catalog = filesystem metadata (tables, indexes)
+- Books on shelves = actual data blocks
+- Rules for putting books in the right spot, naming them, and tracking them = filesystem format
+
+A filesystem defines:
+
+- How data is split into blocks
+- How files are named
+- How directories and subdirectories work
+- How permissions are stored
+- How free space is tracked
+- How to recover from errors
+
+Without a filesystem, the disk is just a sea of raw bytes — no structure.
+
 ## Types
 
 - File Allocation Table (FAT)
