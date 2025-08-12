@@ -24,6 +24,28 @@ sudo apt install lttng-tools lttng-modules-dkms babeltrace2
 
 > babeltrace2 is used to convert the binary trace files into readable text for counting.
 
+### Check the session daemon
+
+Check to see if the session daemon is running:
+
+```bash
+ps aux | grep lttng-sessiond
+```
+
+If not, start it manually:
+
+```bash
+sudo lttng-sessiond --daemonize
+sudo systemctl enable --now lttng-sessiond
+```
+
+For reset, remove it:
+
+```bash
+sudo rm -rf /var/run/lttng
+sudo lttng-sessiond --daemonize
+```
+
 ### Create a session
 
 Session daemons are act as user level applications to collect the results of kernel tracing:
