@@ -1,7 +1,17 @@
 import os
 
+def load_sideignore() -> set:
+    sideignore_path = os.path.join(".", "scripts/.sideignore")
+    if not os.path.exists(sideignore_path):
+        print(f"Warning: {sideignore_path} not found.")
+        return set()
+    
+    with open(sideignore_path, 'r', encoding='utf-8') as f:
+        return {line.strip() for line in f if line.strip() and not line.startswith('#')}
+
 def list_directories(path: str) -> list:
-    return [entry for entry in os.listdir(path) if os.path.isdir(os.path.join(path, entry))]
+    tmp = [entry for entry in os.listdir(path) if os.path.isdir(os.path.join(path, entry))]
+    return [entry for entry in tmp if entry not in load_sideignore()]
 
 def link_generator(path: str, prefix: str) -> list:
     files = [entry for entry in os.listdir(path) if os.path.isfile(os.path.join(path, entry))]
