@@ -57,6 +57,44 @@ kubelet --config=/etc/kubernetes/kubelet-config.yaml --kubeconfig=/etc/kubernete
 - Manages pod volumes, secrets, and config maps.
 - Handles node-level resource management and reporting.
 
+## Troubleshooting
+
+Check if the Kubelet is running:
+
+```bash
+sudo systemctl status kubelet
+```
+
+Look at recent logs:
+
+```bash
+sudo journalctl -u kubelet -xe --no-pager
+```
+
+Restart kubelet:
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+```
+
+### Remember these files
+
+| File purpose                               | Typical locations                                               |
+| ------------------------------------------ | --------------------------------------------------------------- |
+| **Kubelet main config** (YAML)             | `/var/lib/kubelet/config.yaml`                                  |
+|                                            | `/etc/kubernetes/kubelet.conf` *(sometimes same as kubeconfig)* |
+| **Bootstrap kubeconfig**                   | `/etc/kubernetes/bootstrap-kubelet.conf`                        |
+| **Kubelet kubeconfig (for API server)**    | `/etc/kubernetes/kubelet.conf`                                  |
+| **Environment overrides**                  | `/var/lib/kubelet/kubeadm-flags.env`                            |
+|                                            | `/etc/sysconfig/kubelet` *(RHEL/CentOS)*                        |
+|                                            | `/etc/default/kubelet` *(Debian/Ubuntu)*                        |
+| **Static pod manifests**                   | `/etc/kubernetes/manifests/`                                    |
+| **Runtime state** (various files, volumes) | `/var/lib/kubelet/` *(plugins, pods, device-plugins, volumes)*  |
+| **Service**                                | `/etc/systemd/system/kubelet.service`                           |
+|                                            | `/usr/lib/systemd/system/kubelet.service`                       |
+
+
 ## Further Reading
 
 - [Kubelet Documentation](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/)
