@@ -27,6 +27,8 @@ sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 ```
 
+> Make sure to turn swap off: sudo swapoff -a && sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
+
 ### 2. Initialize the Control Plane
 
 You can use default settings or provide a configuration file for custom setups.
