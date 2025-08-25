@@ -2,6 +2,8 @@
 
 eBPF (Extended Berkeley Packet Filter) is a powerful and flexible technology that allows for the execution of custom bytecode within the Linux kernel. Originally designed for packet filtering, eBPF has evolved into a general-purpose infrastructure for running sandboxed programs in the kernel space. These programs can be attached to various hooks, such as network events, system calls, and tracepoints, enabling developers to extend kernel functionality without modifying the kernel source code. This capability makes eBPF a versatile tool for performance monitoring, security enforcement, and network traffic analysis.
 
+![flow](filesystems/images/ebpf.png)
+
 ## Installation
 
 ```sh
