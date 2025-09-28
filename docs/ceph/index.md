@@ -16,4 +16,10 @@ Ceph uses the **CRUSH** algorithm to dynamically distribute data across storage 
 - Backup & Archiving
 - Big Data
 
-<img src="images/cephfs-architecture.svg" width="400" />
+<div align="center">
+    <img src="docs/ceph/images/ceph-overview.webp" width="500" />
+</div>
+
+## References
+
+- [https://docs.ceph.com/en/latest/start/](https://docs.ceph.com/en/latest/start/)

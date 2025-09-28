@@ -35,13 +35,13 @@ int main() {
 }
 ```
 
-## When to Use Librados
+## When to Use Librados?
 
 - Building custom storage solutions that require direct object access.
 - Integrating Ceph with applications that need fine-grained control over data placement and retrieval.
 - Developing high-performance services that leverage Ceph's scalability.
 
-## Further Reading
+## References
 
 - [Ceph Documentation: Librados](https://docs.ceph.com/en/latest/rados/api/librados/)
 - [Librados API Reference](https://docs.ceph.com/en/latest/rados/api/librados/)

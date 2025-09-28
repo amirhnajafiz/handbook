@@ -4,7 +4,9 @@ Ceph uniquely delivers object, block, and file storage in one unified system. Ce
 
 A Ceph Node leverages commodity hardware and intelligent daemons, and a Ceph Storage Cluster accommodates large numbers of nodes, which communicate with each other to replicate and redistribute data dynamically.
 
-![stack](ceph/images/stack.webp)
+<div align="center">
+    <img src="docs/ceph/images/stack.webp" width="400" />
+</div>
 
 ## Storing Data
 
@@ -14,10 +16,14 @@ The data received by the Ceph Storage Cluster is stored as RADOS objects. Each o
 
 Ceph OSDs control read, write, and replication operations on storage drives. The default BlueStore back end stores objects in a monolithic, database-like fashion.
 
-![osd](ceph/images/osd.webp)
+<div align="center">
+    <img src="docs/ceph/images/osd.webp" width="400" />
+</div>
 
 Ceph OSD Daemons store data as objects in a flat namespace. This means that objects are not stored in a hierarchy of directories. An object has an identifier, binary data, and metadata consisting of name/value pairs.
 
 Ceph Clients determine the semantics of the object data. For example, CephFS uses metadata to store file attributes such as the file owner, the created date, and the last modified date.
 
-![metadata](ceph/images/meta.webp)
+<div align="center">
+    <img src="docs/ceph/images/meta.webp" width="400" />
+</div>
