@@ -1,7 +1,5 @@
 # Ceph Storage Cluster
 
-## Overview
-
 A Ceph Storage Cluster is a distributed storage system that provides high performance, reliability, and scalability. It aggregates storage resources from multiple nodes and presents them as a unified storage pool.
 
 ## Key Components

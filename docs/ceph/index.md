@@ -1,11 +1,19 @@
-# Ceph File-system
+# Ceph
 
-CephFS is a POSIX-compliant file system built on top of Ceph’s distributed object store (RADOS). It is designed for high performance, scalability, and availability, supporting use cases like shared directories, HPC scratch space, and distributed workflows.
+**Ceph** is an open-source, software-defined, distributed storage system that provides object, block, and file storage in a single, scalable, and resilient platform. It decouples data from hardware, allowing organizations to build highly available and durable storage clusters on commodity hardware.
 
-Key features include:
+Ceph uses the **CRUSH** algorithm to dynamically distribute data across storage nodes, enabling self-healing, self-rebalancing, and petabyte-scale operations.
 
-* **Separation of data and metadata:** File metadata is stored in a dedicated RADOS pool and managed by a scalable cluster of Metadata Servers (MDS), while clients access file data directly from RADOS.
-* **Scalable architecture:** Clients bypass intermediaries and interact directly with RADOS, allowing performance to scale with the underlying object store.
-* **Efficient metadata handling:** Metadata updates are journaled in RADOS by MDSes without relying on local storage, enabling fast, coordinated access and modifications across clients.
+## Key Components
 
-![cephfs-architecture](images/cephfs-architecture.svg)
+- **RADOS** (Reliable Autonomic Distributed Object Store): The core foundation of Ceph, providing a distributed object store that manages data storage and retrieval. 
+- **CRUSH Algorithm**: A sophisticated algorithm that calculates data placement across the cluster, eliminating the need for centralized metadata servers and enabling dynamic scaling and rebalancing. 
+- Unified Storage: Ceph offers three primary storage interfaces, **Object Storage (RADOS Gateway)**, **Block Storage (RBD)**, and **File Storage (CephFS)**.
+
+## Use Cases
+
+- Cloud Storage: OpenStack, Kubernetes
+- Backup & Archiving
+- Big Data
+
+<img src="images/cephfs-architecture.svg" width="400" />

@@ -1,7 +1,5 @@
 # Hardware and OS
 
-## Hardware Requirements
-
 - **CPU:** Multi-core processors recommended for better performance.
 - **Memory:** Minimum 2 GB RAM per OSD; more is recommended for metadata servers (MDS).
 - **Storage:** SSDs for journals/WAL/DB improve performance; HDDs for bulk storage.
