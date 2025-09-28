@@ -2,7 +2,9 @@
 
 Loki is a horizontally scalable, highly available, multi-tenant log aggregation system inspired by Prometheus. It is designed to be very cost effective and easy to operate. It does not index the contents of the logs, but rather a set of labels for each log stream.
 
-![loki](logging/images/loki-diagram.png)
+<div align="center">
+    <img src="docs/logging/images/loki-diagram.png" width="600" />
+</div>
 
 To collect logs and view your log data generally involves the following steps:
 
@@ -34,7 +36,9 @@ To get started easily, run Grafana Loki in “single binary” mode with all com
 
 Grafana Loki is designed to easily redeploy a cluster under a different mode as your needs change, with no configuration changes or minimal configuration changes.
 
-![loki-components](logging/images/loki_architecture_components.svg)
+<div align="center">
+    <img src="docs/logging/images/loki_architecture_components.svg" width="400" />
+</div>
 
 ## References
 

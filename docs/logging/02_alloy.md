@@ -15,7 +15,9 @@ Some of the key features of Alloy include:
 - Security: Alloy helps you manage authentication credentials and connect to HashiCorp Vaults or Kubernetes clusters to retrieve secrets.
 - Debugging utilities: Alloy provides troubleshooting support and an embedded user interface to help you identify and resolve configuration problems.
 
-![alloy](logging/images/flow-diagram-small-alloy.png)
+<div align="center">
+    <img src="docs/logging/images/flow-diagram-small-alloy.png" width="600" />
+</div>
 
 ### Collect
 

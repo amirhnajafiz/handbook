@@ -1,6 +1,8 @@
 # GPUs
 
-The process of configuring a Kubernetes cluster to support GPU-based workloads includes setting up the nodes, installing NVIDIA drivers and devices, adding the necessary Kubernetes plugins, and deploying the DCGM Exporter for monitoring. In this report, we assume that a Kubernetes cluster is already available, with nodes equipped with GPU cards and a Prometheus service running for metrics collection.
+The process of configuring a Kubernetes cluster to support GPU-based workloads includes setting up the nodes, installing NVIDIA drivers and devices, adding the necessary Kubernetes plugins, and deploying the DCGM Exporter for monitoring.
+
+In this report, we assume that a Kubernetes cluster is already available, with nodes equipped with GPU cards and a Prometheus service running for metrics collection.
 
 ## NVIDIA Drivers
 

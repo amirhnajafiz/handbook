@@ -2,8 +2,6 @@
 
 **SSH (Secure Shell)** is a protocol for securely connecting to remote systems over a network. It provides encrypted communication and is commonly used for remote login, command execution, and file transfer.
 
----
-
 ## Basic SSH Usage
 
 - **Connect to a remote server:**
@@ -22,8 +20,6 @@
   ```shell
   ssh user@hostname 'ls -l /var/log'
   ```
-
----
 
 ## SSH Key Authentication
 
@@ -44,8 +40,6 @@
    ssh user@hostname
    ```
 
----
-
 ## SSH Agent
 
 - **Start the agent and add your key:**
@@ -53,8 +47,6 @@
   eval "$(ssh-agent -s)"
   ssh-add ~/.ssh/id_ed25519
   ```
-
----
 
 ## SSH Config File
 
@@ -74,8 +66,6 @@ Host myserver
   ssh myserver
   ```
 
----
-
 ## Port Forwarding
 
 - **Local port forwarding:**
@@ -90,8 +80,6 @@ Host myserver
   ```
   (Expose local port 3000 on remote port 9090)
 
----
-
 ## Copying Files
 
 - **Using scp:**
@@ -105,8 +93,6 @@ Host myserver
   rsync -avz file.txt user@hostname:/path/to/dest/
   ```
 
----
-
 ## Useful SSH Commands
 
 - **Check SSH version:**
@@ -119,8 +105,6 @@ Host myserver
   ```
 - **Kill hung SSH session:**  
   Press `~.` (tilde, then dot) in the SSH terminal.
-
----
 
 ## Server-Side Configuration
 
@@ -137,8 +121,6 @@ Host myserver
   AllowUsers alice bob
   ```
 
----
-
 ## Security Tips
 
 - Use SSH keys, not passwords.
@@ -147,10 +129,7 @@ Host myserver
 - Use strong passphrases.
 - Regularly update OpenSSH.
 
----
-
 ## References
 
 - [OpenSSH Manual](https://man.openbsd.org/ssh)
 - [SSH Config Documentation](https://linux.die.net/man/5/ssh_config)
-
