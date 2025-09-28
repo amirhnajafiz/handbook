@@ -38,7 +38,7 @@ Consistency in distributed systems refers to the guarantee about the visibility 
 - **Strong Consistency:** Banking systems, distributed locking, critical configuration management.
 - **Eventual Consistency:** Social media feeds, DNS, caching systems.
 
-## Further Reading
+## References
 
 - [Consistency Models (Wikipedia)](https://en.wikipedia.org/wiki/Consistency_model)
 - [Designing Data-Intensive Applications (Martin Kleppmann)](https://dataintensive.net/)

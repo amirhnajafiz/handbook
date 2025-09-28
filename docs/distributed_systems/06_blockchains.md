@@ -39,7 +39,7 @@ A blockchain is a distributed ledger technology that records transactions in a s
 - **Privacy:** Balancing transparency with user confidentiality.
 - **Regulation:** Legal and compliance issues in different jurisdictions.
 
-## Further Reading
+## References
 
 - [Bitcoin Whitepaper (Satoshi Nakamoto)](https://bitcoin.org/bitcoin.pdf)
 - [Ethereum Whitepaper](https://ethereum.org/en/whitepaper/)

@@ -1,6 +1,6 @@
 # RAFT
 
-RAFT is a consensus algorithm designed to manage a replicated log in distributed systems. It is widely used because it is easier to understand than other consensus algorithms like Paxos, while providing the same fault-tolerance and consistency guarantees.
+**RAFT** is a consensus algorithm designed to manage a replicated log in distributed systems. It is widely used because it is easier to understand than other consensus algorithms like Paxos, while providing the same fault-tolerance and consistency guarantees.
 
 ## Key Concepts
 
@@ -39,7 +39,7 @@ RAFT is a consensus algorithm designed to manage a replicated log in distributed
 - Key-value stores
 - Configuration management systems
 
-## Further Reading
+## References
 
 - [In Search of an Understandable Consensus Algorithm (RAFT Paper)](https://raft.github.io/raft.pdf)
 - [The RAFT Consensus Algorithm Website](https://raft.github.io/)

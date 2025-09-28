@@ -46,9 +46,12 @@ def main():
     for directory in sorted(directories):
         dir_path = os.path.join(path, directory)
         md_files = link_generator(dir_path, directory)
+
+        name = directory.replace('_', '  ')
+        name = ' '.join([x.capitalize() for x in name.split(" ")])
         
         # use directory name as the parent title
-        lines.append(f"- [{directory.replace('_', ' ').capitalize()}]({directory}/index.md)")
+        lines.append(f"- [{name}]({directory}/index.md)")
         for md_file in md_files:
             md_path = os.path.join(path, md_file)
             title = get_markdown_title(md_path)

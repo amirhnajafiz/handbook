@@ -1,6 +1,6 @@
 # PAXOS
 
-Paxos is a family of protocols for solving consensus in a network of unreliable processors (nodes). It is designed to ensure that a group of nodes can agree on a single value, even if some nodes or network messages fail.
+**Paxos** is a family of protocols for solving consensus in a network of unreliable processors (nodes). It is designed to ensure that a group of nodes can agree on a single value, even if some nodes or network messages fail.
 
 ## Key Concepts
 
@@ -35,7 +35,7 @@ Paxos is a family of protocols for solving consensus in a network of unreliable 
 - Distributed locks
 - Replicated state machines
 
-## Further Reading
+## References
 
 - [Paxos Made Simple (Leslie Lamport)](https://lamport.azurewebsites.net/pubs/paxos-simple.pdf)
 - [The Part-Time Parliament (Original Paxos Paper)](https://lamport.azurewebsites.net/pubs/lamport-paxos.pdf)
