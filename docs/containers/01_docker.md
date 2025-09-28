@@ -1,6 +1,6 @@
 # Docker
 
-Docker is a popular platform for developing, shipping, and running applications inside containers. It simplifies application deployment by packaging code and dependencies together.
+**Docker** is a popular platform for developing, shipping, and running applications inside containers. It simplifies application deployment by packaging code and dependencies together.
 
 ## Key Concepts
 
@@ -12,105 +12,164 @@ Docker is a popular platform for developing, shipping, and running applications 
 ## Useful Docker Commands
 
 - **Check Docker version**
-  ```
-  docker --version
-  ```
+
+```sh
+docker --version
+```
 
 - **List running containers**
-  ```
-  docker ps
-  ```
+
+```sh
+docker ps
+```
 
 - **List all containers**
-  ```
-  docker ps -a
-  ```
+
+```sh
+docker ps -a
+```
 
 - **List images**
-  ```
-  docker images
-  ```
+
+```sh
+docker images
+```
 
 - **Pull an image**
-  ```
-  docker pull <image-name>
-  ```
+
+```sh
+docker pull <image-name>
+```
 
 - **Build an image from a Dockerfile**
-  ```
-  docker build -t <image-name> .
-  ```
+
+```sh
+docker build -t <image-name> .
+```
 
 - **Run a container**
-  ```
-  docker run -it --name <container-name> <image-name>
-  ```
+
+```sh
+docker run -it --name <container-name> <image-name>
+```
 
 - **Stop a container**
-  ```
-  docker stop <container-name>
-  ```
+
+```sh
+docker stop <container-name>
+```
 
 - **Remove a container**
-  ```
-  docker rm <container-name>
-  ```
+
+```sh
+docker rm <container-name>
+```
 
 - **Remove an image**
-  ```
-  docker rmi <image-name>
-  ```
+
+```sh
+docker rmi <image-name>
+```
 
 - **View container logs**
-  ```
-  docker logs <container-name>
-  ```
+
+```sh
+docker logs <container-name>
+```
 
 - **Execute a command in a running container**
-  ```
-  docker exec -it <container-name> /bin/bash
-  ```
 
-## Networking Commands
+```sh
+docker exec -it <container-name> /bin/bash
+```
+
+### Networking Commands
 
 - **List networks**
-    ```
-    docker network ls
-    ```
+
+```sh
+docker network ls
+```
 
 - **Create a network**
-    ```
-    docker network create <network-name>
-    ```
+
+```sh
+docker network create <network-name>
+```
 
 - **Connect a container to a network**
-    ```
-    docker network connect <network-name> <container-name>
-    ```
+
+```sh
+docker network connect <network-name> <container-name>
+```
 
 - **Disconnect a container from a network**
-    ```
-    docker network disconnect <network-name> <container-name>
-    ```
 
-## Persistent Volumes
+```sh
+docker network disconnect <network-name> <container-name>
+```
+
+## Volumes Commands
 
 - **List volumes**
-    ```
-    docker volume ls
-    ```
+
+```sh
+docker volume ls
+```
 
 - **Create a volume**
-    ```
-    docker volume create <volume-name>
-    ```
+
+```sh
+docker volume create <volume-name>
+```
 
 - **Use a volume with a container**
-    ```
-    docker run -v <volume-name>:/path/in/container <image-name>
-    ```
+
+```sh
+docker run -v <volume-name>:/path/in/container <image-name>
+```
 
 - **Remove a volume**
-    ```
-    docker volume rm <volume-name>
-    ```
+
+```sh
+docker volume rm <volume-name>
+```
+
+## Docker Configuration
+
+Docker can be configured using the `daemon.json` file, command-line flags, and environment variables.
+
+### Main Configuration File
+
+- Linux: `/etc/docker/daemon.json`  
+- macOS: `~/Library/Group Containers/group.com.docker/settings.json` (for Docker Desktop)
+
+### Example `daemon.json`
+
+```json
+{
+  "data-root": "/var/lib/docker",
+  "log-level": "info",
+  "storage-driver": "overlay2",
+  "insecure-registries": ["myregistry.local:5000"],
+  "registry-mirrors": ["https://mirror.gcr.io"]
+}
+```
+
+### Common Configuration Options
+
+- `data-root`: Directory where Docker stores images, containers, and volumes.
+- `log-level`: Logging level (`debug`, `info`, `warn`, `error`, `fatal`).
+- `storage-driver`: Filesystem driver (e.g., `overlay2`, `aufs`).
+- `insecure-registries`: List of registries Docker should treat as insecure.
+- `registry-mirrors`: List of registry mirrors to use for image pulls.
+
+### Reloading Docker Configuration
+
+After changing `daemon.json`, restart Docker:
+
+```sh
+sudo systemctl restart docker
+```
+
+Or, for Docker Desktop, restart the application.
