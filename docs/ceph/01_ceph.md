@@ -1,4 +1,4 @@
-# Ceph
+# Ceph Cluster
 
 Ceph is a clustered and distributed storage manager. If that’s too cryptic, then just think of Ceph as a computer program that stores data and uses a network to make sure that there is a backup copy of the data.
 
