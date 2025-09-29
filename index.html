@@ -11,7 +11,7 @@
     <link rel="icon" href="public/favicon.ico" />
 
     <!-- Title -->
-    <title>The Handbook</title>
+    <title>Handbook</title>
 
     <!-- Custome files -->
     <link rel="stylesheet" href="public/style.css" />
@@ -34,7 +34,7 @@
         repo: "github.com/amirhnajafiz/handbook",
         basePath: "docs/",
         loadSidebar: true,
-        search: "auto",
+        search: 'auto',
         coverpage: true,
         auto2top: true,
         markdown: {
@@ -42,16 +42,12 @@
         },
         subMaxLevel: 0,
         sidebarDisplayLevel: 0,
-        sidebarCollapse: {
-          collapse: true,
-          hide: false,
-          accordion: true,
-        },
+        sidebarCollapse: true
       };
     </script>
     
     <!-- Docsify Script -->
-    <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
@@ -66,5 +62,14 @@
 
     <!-- Sidebar Collapse Plugin -->
     <script src="//unpkg.com/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+
+    <!-- Prism core -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-c.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-cpp.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-go.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-yaml.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-toml.min.js"></script>
   </body>
 </html>
