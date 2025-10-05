@@ -1,5 +1,9 @@
 # eBPF FlameGraph
 
+A FlameGraph is a visualization tool for profiling software performance, especially useful for understanding stack traces from CPU, memory, or I/O profiling.
+
+## Setup
+
 Clone FlameGraph repository:
 
 ```sh
@@ -19,7 +23,7 @@ sudo bpftrace ext4.bt > out.txt
 ./flamegraph.pl out.folded > flamegraph.svg
 ```
 
-### folded
+### Creating a folded version to raw data
 
 ```sh
 cat out.txt \
@@ -45,8 +49,6 @@ cat out.txt \
     }
   ' > out.folded
 ```
-
-output:
 
 ```txt
 write:ext4_file_write_iter;ext4_file_write_iter+1;vfs_iter_write+188;lo_write_simple.isra.0+294;do_req_filebacked+387;loop_process_work+185;loop_workfn+29;process_one_work+388;worker_thread+774;kthread+242;ret_from_fork+71;ret_from_fork_asm+27 12492

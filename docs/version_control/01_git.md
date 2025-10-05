@@ -1,61 +1,139 @@
 # Git
 
-- `git init`  
-  Initialize a new Git repository.
+Initialize a new Git repository:
 
-- `git clone <repository-url>`  
-  Clone a repository into a new directory.
+```bash
+git init
+```
 
-- `git status`  
-  Show the working tree status.
+Clone a repository into a new directory:
 
-- `git add <file>`  
-  Add file contents to the staging area.
+```bash
+git clone <repository-url>
+```
 
-- `git add .`  
-  Add all changes in the current directory to the staging area.
+Show the working tree status:
 
-- `git commit -m "commit message"`  
-  Record changes to the repository with a message.
+```bash
+git status
+```
 
-- `git log`  
-  Show commit logs.
+Add file contents to the staging area:
 
-- `git diff`  
-  Show changes between commits, commit and working tree, etc.
+```bash
+git add <file>
+```
 
-- `git branch`  
-  List, create, or delete branches.
+Add all changes in the current directory to the staging area:
 
-- `git checkout <branch>`  
-  Switch to another branch.
+```bash
+git add .
+```
 
-- `git checkout -b <new-branch>`  
-  Create and switch to a new branch.
+Record changes to the repository with a message:
 
-- `git merge <branch>`  
-  Merge another branch into the current branch.
+```bash
+git commit -m "commit message"
+```
 
-- `git pull`  
-  Fetch from and integrate with another repository or a local branch.
+Show commit logs:
 
-- `git push`  
-  Update remote refs along with associated objects.
+```bash
+git log
+```
 
-- `git remote -v`  
-  Show remote connections.
+Show changes between commits, commit and working tree, etc.:
 
-- `git fetch`  
-  Download objects and refs from another repository.
+```bash
+git diff
+```
 
-- `git reset --hard <commit>`  
-  Reset current HEAD to the specified state.
+List, create, or delete branches:
 
-- `git rm <file>`  
-  Remove files from the working tree and from the index.
+```bash
+git branch
+```
 
-- `git stash`  
-  Stash the changes in a dirty working directory.
+Switch to another branch:
 
-- `git stash pop`  
-  Apply the most recently stashed changes and remove them
+```bash
+git checkout <branch>
+```
+
+Create and switch to a new branch:
+
+```bash
+git checkout -b <new-branch>
+```
+
+Merge another branch into the current branch:
+
+```bash
+git merge <branch>
+```
+
+Fetch from and integrate with another repository or a local branch:
+
+```bash
+git pull
+```
+
+Update remote refs along with associated objects:
+
+```bash
+git push
+```
+
+Show remote connections:
+
+```bash
+git remote -v
+```
+
+Download objects and refs from another repository:
+
+```bash
+git fetch
+```
+
+Reset current HEAD to the specified state:
+
+```bash
+git reset --hard <commit>
+```
+
+Remove files from the working tree and from the index:
+
+```bash
+git rm <file>
+```
+
+Stash the changes in a dirty working directory:
+
+```bash
+git stash
+```
+
+Apply the most recently stashed changes and remove them:
+
+```bash
+git stash pop
+```
+
+Get the list of tags:
+
+```bash
+git tag
+```
+
+Create a new tag:
+
+```bash
+git tag v0.0.1
+```
+
+Push tags:
+
+```bash
+git push --tags
+```

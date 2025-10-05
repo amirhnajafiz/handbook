@@ -1,9 +1,6 @@
 # Computer Systems Security
 
-Security is the degree of resistance to, or protection from, harm.
-It applies to any vulnerable and valuable asset.
-
-## CIA
+Security is the degree of resistance to, or protection from, harm. It applies to any vulnerable and valuable asset.
 
 Computer security is about __CIA__:
 

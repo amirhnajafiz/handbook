@@ -1,19 +1,17 @@
 # LTTng
 
-The Linux Trace Toolkit: next generation is an open source software toolkit which you can use to trace the Linux kernel, user applications, and user libraries at the same time.
+The Linux Trace Toolkit next generation is an open source software toolkit which you can use to trace the Linux kernel, user applications, and user libraries at the same time.
 
-## Methods
+LTTng traces using several mechanisms:
 
-LTTng (Linux Trace Toolkit Next Generation) traces using several mechanisms:
+- **Kernel and User-space Tracepoints**: The primary mechanism for LTTng tracing is tracepoints. These are static instrumentation points in both kernel and user-space code that can be “activated” by tracers like LTTng, resulting in minimal runtime overhead when disabled, and efficient data collection when enabled. LTTng-UST provides a user-space API for defining and using tracepoints in applications, using macros like TRACEPOINT_EVENT().
+- **Kprobes and Kretprobes**: LTTng supports dynamic instrumentation via kprobes (and kretprobes), which allows the toolkit to tap into arbitrary kernel instructions and function entry/exit points. This enables tracing even if explicit tracepoints aren’t present.
+- **Function Tracing**: LTTng can hook into function tracer mechanisms to record function calls within the kernel.
+- **CPU Performance Monitoring Unit (PMU) Counters**: It can also trace using hardware performance counters for fine-grained, low-level performance analysis.
 
-- Kernel and User-space Tracepoints: The primary mechanism for LTTng tracing is tracepoints. These are static instrumentation points in both kernel and user-space code that can be “activated” by tracers like LTTng, resulting in minimal runtime overhead when disabled, and efficient data collection when enabled. LTTng-UST provides a user-space API for defining and using tracepoints in applications, using macros like TRACEPOINT_EVENT().
-- Kprobes and Kretprobes: LTTng supports dynamic instrumentation via kprobes (and kretprobes), which allows the toolkit to tap into arbitrary kernel instructions and function entry/exit points. This enables tracing even if explicit tracepoints aren’t present.
-- Function Tracing: LTTng can hook into function tracer mechanisms to record function calls within the kernel.
-- CPU Performance Monitoring Unit (PMU) Counters: It can also trace using hardware performance counters for fine-grained, low-level performance analysis.
+While eBPF focuses on using tracepoints and kprobes for dynamic instrumentation, LTTng supports both these mechanisms and more, with an emphasis on pre-defined tracepoints for zero overhead when disabled, extensive trace coverage, and support for dynamic probes for flexibility.
 
-> So, while eBPF focuses on using tracepoints and kprobes for dynamic instrumentation, LTTng supports both these mechanisms and more, with an emphasis on pre-defined tracepoints for zero overhead when disabled, extensive trace coverage, and support for dynamic probes for flexibility.
-
-## Install
+## Installation
 
 Install the tools:
 
