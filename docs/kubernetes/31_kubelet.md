@@ -95,7 +95,7 @@ sudo systemctl restart kubelet
 |                                            | `/usr/lib/systemd/system/kubelet.service`                       |
 
 
-## Further Reading
+## References
 
 - [Kubelet Documentation](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/)
 - [Kubelet Configuration](https://kubernetes.io/docs/tasks/administer-cluster/kubelet-config-file/)

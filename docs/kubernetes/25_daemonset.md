@@ -1,8 +1,6 @@
 # DaemonSet
 
-A DaemonSet ensures that all (or some) Nodes run a copy of a Pod.
-As nodes are added to the cluster, Pods are added to them.
-As nodes are removed from the cluster, those Pods are garbage collected. Deleting a DaemonSet will clean up the Pods it created.
+A DaemonSet ensures that all (or some) Nodes run a copy of a Pod. As nodes are added to the cluster, Pods are added to them. As nodes are removed from the cluster, those Pods are garbage collected. Deleting a DaemonSet will clean up the Pods it created.
 
 Some typical uses of a DaemonSet are:
 
@@ -12,7 +10,7 @@ Some typical uses of a DaemonSet are:
 
 In a simple case, one DaemonSet, covering all nodes, would be used for each type of daemon. A more complex setup might use multiple DaemonSets for a single type of daemon, but with different flags and/or different memory and cpu requests for different hardware types.
 
-## example
+## e.g.,
 
 ```yaml
 apiVersion: apps/v1
@@ -59,15 +57,11 @@ spec:
           path: /var/log
 ```
 
-## how are they scheduled?
+## How are they scheduled?
 
-A DaemonSet ensures that all eligible nodes run a copy of a Pod.
-The DaemonSet controller creates a Pod for each eligible node and adds the ```spec.affinity.nodeAffinity``` field of the Pod to
-match the target host. After the Pod is created, the default scheduler typically takes over and then binds the Pod to
-the target host by setting the ```.spec.nodeName field.``` If the new Pod cannot fit on the node, the default scheduler may
-preempt (evict) some of the existing Pods based on the priority of the new Pod.
+A DaemonSet ensures that all eligible nodes run a copy of a Pod. The DaemonSet controller creates a Pod for each eligible node and adds the ```spec.affinity.nodeAffinity``` field of the Pod to match the target host. After the Pod is created, the default scheduler typically takes over and then binds the Pod to the target host by setting the ```.spec.nodeName field.``` If the new Pod cannot fit on the node, the default scheduler may preempt (evict) some of the existing Pods based on the priority of the new Pod.
 
-## links
+## References
 
 - [K8S DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)
 - [Static pods](https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/)

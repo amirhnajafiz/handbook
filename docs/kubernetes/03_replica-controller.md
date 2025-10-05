@@ -1,9 +1,10 @@
 # Replica Controller
 
 A ```ReplicationController``` ensures that a specified number of pod replicas are running at any one time.
+
 In other words, a ```ReplicationController``` makes sure that a pod or a homogeneous set of pods is always up and available.
 
-## example
+## e.g.,
 
 ```yml
 apiVersion: v1
@@ -27,7 +28,7 @@ spec:
         - containerPort: 80
 ```
 
-### usage patterns
+### Usage patterns
 
 - Rescheduling
 - Scaling
@@ -35,7 +36,7 @@ spec:
 - Multiple release tracks
 - Using ReplicationControllers with Services
 
-### alternatives
+### Alternatives
 
 - ReplicaSet
 - Deployment
@@ -43,7 +44,7 @@ spec:
 - Job
 - DaemonSet
 
-## commands
+## Commands
 
 ```shell
 kubectl create -f rc-definition.yml
@@ -53,6 +54,6 @@ kubectl create -f rc-definition.yml
 kubectl get replicationcontroller/rc
 ```
 
-## links
+## References
 
 - [K8S RC](https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/)

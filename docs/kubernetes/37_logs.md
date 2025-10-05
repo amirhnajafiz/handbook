@@ -6,7 +6,8 @@ Centralized logging in Kubernetes involves deploying a DaemonSet for a logging a
 
 - **ELK Stack (Elasticsearch, Logstash, Kibana):**  
   The most well-known solution. Logstash collects and processes logs, Elasticsearch stores them, and Kibana provides dashboards and search.  
-  *Note:* Logstash can be resource-intensive. Alternatives like Filebeat, Fluentd, and Fluent Bit are often used as lighter log shippers.
+
+*Note:* Logstash can be resource-intensive. Alternatives like Filebeat, Fluentd, and Fluent Bit are often used as lighter log shippers.
 
 - **Graylog:**  
   A powerful, open-source log management platform. Graylog provides real-time analysis, alerting, and dashboards. It uses Elasticsearch for log storage and MongoDB for metadata. Graylog is known for its efficient performance and flexible architecture.

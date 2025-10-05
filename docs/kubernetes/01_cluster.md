@@ -1,11 +1,10 @@
 # Cluster
 
 Kubernetes can get installed on various methods. Kubernetes runs your workload by placing containers into Pods to run on Nodes.
-A node may be a virtual or physical machine, depending on the cluster.
-Each node is managed by the control plane and contains the services necessary to run Pods.
-The components on a node include the kubelet, a container runtime, and the kube-proxy.
 
-## install
+A node may be a virtual or physical machine, depending on the cluster. Each node is managed by the control plane and contains the services necessary to run Pods. The components on a node include the kubelet, a container runtime, and the kube-proxy.
+
+## Install
 
 To install a single node kubernetes cluster on your system you can use the following tools.
 
@@ -29,7 +28,7 @@ resource-constrained, remote locations or inside IoT appliances.
 
 - [k3s.io](https://k3s.io/)
 
-## context
+## Context
 
 Kubernetes clusters information are located in ```~/.kube/config``` file. The file is like this:
 
@@ -57,10 +56,9 @@ users:
     token: 7d56b4b0
 ```
 
-A Kubernetes context is a group of access parameters that define which cluster you're interacting with,
-which user you're using, and which namespace you're working in.
+A Kubernetes context is a group of access parameters that define which cluster you're interacting with, which user you're using, and which namespace you're working in.
 
-### commands
+### Commands
 
 change context:
 
@@ -74,6 +72,6 @@ view configs:
 kubectl config view
 ```
 
-## links
+## References
 
 - [K8S configure access](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/)

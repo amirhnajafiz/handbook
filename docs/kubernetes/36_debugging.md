@@ -64,15 +64,7 @@ kubectl debug -it <pod-name> --image=nicolaka/netshoot --target=<container-name>
 - Use RBAC to restrict who can run debug containers.
 - Document common troubleshooting steps for your team.
 
-## 6. Visual Guide
-
-> Add screenshots or diagrams to the `public/` directory and reference them here for a richer guide.
-
-- ![Debugging Overview](../public/debugging-overview.png)
-- ![kubectl debug example](../public/debug-kubectl-example.png)
-- ![Pod inspection](../public/debug-pod-inspection.png)
-
-## References & Links
+## References
 
 - [K8S debugging](https://kubernetes.io/docs/tasks/debug/debug-application/debug-running-pod/)
 - [Netshoot image](https://github.com/nicolaka/netshoot)

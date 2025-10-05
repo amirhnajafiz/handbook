@@ -1,6 +1,6 @@
 # ETCD
 
-etcd is a distributed, reliable key-value store that is simple, secure, and fast. It is designed for fast reads and writes, and provides strong consistency using the RAFT consensus algorithm.
+ETCD is a distributed, reliable key-value store that is simple, secure, and fast. It is designed for fast reads and writes, and provides strong consistency using the RAFT consensus algorithm.
 
 ## Features
 
@@ -79,7 +79,7 @@ Regular backups are essential for disaster recovery.
 - Regularly back up etcd data.
 - Monitor etcd health and cluster status.
 
-## Further Reading
+## References
 
 - [etcd Documentation](https://etcd.io/docs/)
 - [Kubernetes etcd Cluster Administration](https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/)

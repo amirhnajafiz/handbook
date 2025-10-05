@@ -61,7 +61,7 @@ kube-proxy --config=/etc/kubernetes/kube-proxy-config.yaml
 - Integrates with cloud provider load balancers for external access.
 - Automatically updates rules as services and endpoints change.
 
-## Further Reading
+## References
 
 - [Kube Proxy Documentation](https://kubernetes.io/docs/concepts/services-networking/service/#kube-proxy)
 - [Kube Proxy Modes](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/)

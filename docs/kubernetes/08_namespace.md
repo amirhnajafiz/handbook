@@ -1,16 +1,15 @@
 # Namespaces
 
-In Kubernetes, ```namespaces``` provides a mechanism for isolating groups of resources within a single cluster.
-Names of resources need to be unique within a namespace, but not across namespaces.
-Namespace-based scoping is applicable only for namespaced objects (e.g. Deployments, Services, etc)
-and not for cluster-wide objects (e.g. StorageClass, Nodes, PersistentVolumes, etc).
+In Kubernetes, ```namespaces``` provides a mechanism for isolating groups of resources within a single cluster. Names of resources need to be unique within a namespace, but not across namespaces.
+
+Namespace-based scoping is applicable only for namespaced objects (e.g. Deployments, Services, etc) and not for cluster-wide objects (e.g. StorageClass, Nodes, PersistentVolumes, etc).
 
 - Default
 - Kube-node-lease
 - Kube-system
 - Kube-public
 
-## example (commands)
+## e.g., (commands)
 
 ```sh
 kubectl run nginx --image=nginx --namespace=<insert-namespace-name-here>
@@ -25,13 +24,15 @@ kubectl config view --minify | grep namespace:
 ## DNS
 
 Kubernetes creates DNS records for Services and Pods. You can contact Services with consistent DNS names instead of IP addresses.
+
 Services defined in the cluster are assigned DNS names. By default, a client Pod's DNS search list includes the Pod's
 own namespace and the cluster's default domain.
-DNS queries may be expanded using the Pod's ```/etc/resolv.conf```. Kubelet configures this file for each Pod.
-For example, a query for just data may be expanded to ```data.test.svc.cluster.local```.
-The values of the search option are used to expand queries.
 
-### commands
+DNS queries may be expanded using the Pod's ```/etc/resolv.conf```. Kubelet configures this file for each Pod.
+
+For example, a query for just data may be expanded to ```data.test.svc.cluster.local```. The values of the search option are used to expand queries.
+
+### Commands
 
 ```shell
 [service name].[namespace].[service].[domain]
@@ -79,11 +80,9 @@ kubectl get pods -n=dev
 
 ## Resource Quota
 
-When several users or teams share a cluster with a fixed number of nodes,
-there is a concern that one team could use more than its fair share of resources.
-```Resource quotas``` are a tool for administrators to address this concern.
+When several users or teams share a cluster with a fixed number of nodes, there is a concern that one team could use more than its fair share of resources. ```Resource quotas``` are a tool for administrators to address this concern.
 
-### example
+### e.g.,
 
 ```yaml
 apiVersion: v1
@@ -102,7 +101,7 @@ spec:
         values: ["medium"]
 ```
 
-### commands
+### Commands
 
 ```shell
 kubectl create -f compute-quota.yml
@@ -112,7 +111,7 @@ kubectl create -f compute-quota.yml
 kubectl get quota --namespace=myspace
 ```
 
-## links
+## References
 
 - [K8S DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/)
 - [Resource Quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/)

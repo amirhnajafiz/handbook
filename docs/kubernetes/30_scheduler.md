@@ -27,7 +27,7 @@ The **Kube Scheduler** is a core component of the Kubernetes control plane respo
 
 Kubernetes supports running multiple schedulers. You can implement and deploy custom schedulers for specialized scheduling needs.
 
-## Further Reading
+## References
 
 - [Kube Scheduler Documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/kube-scheduler/)
 - [Scheduling Pods](https://kubernetes.io/docs/concepts/scheduling-eviction/)

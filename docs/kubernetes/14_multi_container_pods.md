@@ -1,22 +1,16 @@
 # Multi container pods
 
-Containers in a Pod runs on a "logical host": they use the same network namespace (same IP address and port space),
-IPC namespace and, optionally, they can use shared volumes.
-Therefore, these containers can efficiently communicate, ensuring data locality.
-Also, Pods allow managing several tightly coupled application containers as a single unit.
+Containers in a Pod runs on a "logical host": they use the same network namespace (same IP address and port space), IPC namespace and, optionally, they can use shared volumes. Therefore, these containers can efficiently communicate, ensuring data locality. Also, Pods allow managing several tightly coupled application containers as a single unit.
 
-The primary purpose of a multi-container Pod is to support co-located, co-managed helper processes for a main program.
-There are some general patterns of using helper processes in Pods:
+The primary purpose of a multi-container Pod is to support co-located, co-managed helper processes for a main program. There are some general patterns of using helper processes in Pods:
 
 - Sidecar containers
 - Proxies, bridges, adapters
 - Ambassador pattern
 
-Containers in a Pod share the same IPC namespace and they can also communicate with each other using standard inter-process
-communications like SystemV semaphores or POSIX shared memory. Containers in a Pod are accessible via "localhost",
-they use the same network namespace.
+Containers in a Pod share the same IPC namespace and they can also communicate with each other using standard inter-process communications like SystemV semaphores or POSIX shared memory. Containers in a Pod are accessible via "localhost", they use the same network namespace.
 
-## example
+## e.g.,
 
 ```yaml
 apiVersion: v1
@@ -46,7 +40,7 @@ spec:
         done
 ```
 
-## why using it?
+## Why using it?
 
 - Efficient Collaboration: They support multiple containers working closely together, making them ideal for applications with interconnected components.
 - Streamlined Management: All containers within a Pod start, stop, and update together, simplifying operational tasks.
@@ -54,6 +48,6 @@ spec:
 - Effective Communication: Containers in the same Pod can efficiently exchange data, reducing network overhead.
 - Consistency in Updates: Updates are synchronized across all containers in the Pod, reducing version conflicts.
 
-## links
+## References
 
 - [Multi-containers](https://k21academy.com/docker-kubernetes/multi-container-pods/)

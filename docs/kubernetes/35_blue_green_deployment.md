@@ -2,7 +2,9 @@
 
 **Blue-Green Deployment** is a deployment pattern that reduces downtime and risk by running two identical production environments, called **blue** and **green**. At any given time, only one environment (blue or green) is live and serving production traffic.
 
-![](https://miro.medium.com/v2/resize:fit:1400/format:webp/0*Tp58tyzgHLBSA_xp.png)
+<div align="center">
+  <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/0*Tp58tyzgHLBSA_xp.png" width="500" />
+</div>
 
 ## How It Works
 
@@ -124,7 +126,7 @@ kubectl patch service myapp-service -p '{"spec":{"selector":{"app":"myapp","vers
 - When database schema changes are involved.
 - When gradual rollout and monitoring are preferred (consider canary or rolling updates).
 
-## Further Reading
+## References
 
 - [Kubernetes Blue-Green Deployments](https://kubernetes.io/blog/2018/04/30/zero-downtime-deployment-kubernetes-jenkins/)
 - [Kubernetes Service Documentation](https://kubernetes.io/docs/concepts/services-networking/service/)

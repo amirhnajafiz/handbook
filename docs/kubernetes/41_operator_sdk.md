@@ -8,44 +8,42 @@ The **Operator SDK** is a framework for building Kubernetes Operators. It provid
 - **Custom Resource Definition (CRD):** Extends the Kubernetes API with new resource types.
 - **Controller:** Watches for changes to resources and reconciles actual state to desired state.
 
----
-
-## Getting Started
-
-### 1. Install Operator SDK
+## Install Operator SDK
 
 ```shell
 brew install operator-sdk
 # or see https://sdk.operatorframework.io/docs/installation/
 ```
 
-### 2. Initialize a New Operator Project
+## Initialize a New Operator Project
 
 ```shell
 operator-sdk init --domain=example.com --repo=github.com/example/memcached-operator
 ```
+
 - `--domain`: The API group domain (e.g., `cache.example.com`).
 - `--repo`: The Go module path for your project.
 
-### 3. Create an API and Controller
+## Create an API and Controller
 
 ```shell
 operator-sdk create api --group=cache --version=v1 --kind=Memcached --resource --controller
 ```
+
 - This generates CRD manifests, API types, and a controller scaffold.
 
-### 4. Implement Reconcile Logic
+## Implement Reconcile Logic
 
 Edit the generated controller code (in `controllers/`) to define how your Operator manages resources.
 
-### 5. Build and Run Locally
+## Build and Run Locally
 
 ```shell
 make install   # Install CRDs into the cluster
 make run       # Run the operator locally (uses your kubeconfig)
 ```
 
-### 6. Deploy to Cluster
+## Deploy to Cluster
 
 Build and push your Operator image:
 
@@ -59,40 +57,40 @@ Deploy to the cluster:
 make deploy IMG=<your-registry>/memcached-operator:tag
 ```
 
----
-
 ## Operator Lifecycle Management (OLM), Bundles, and Catalogs
 
 ### Bundles
 
 A **bundle** is a packaging format for Operators. It contains manifests for the Operator, CRDs, RBAC, and metadata.
 
-- Generate a bundle:
-  ```shell
-  make bundle
-  ```
-- Validate the bundle:
-  ```shell
-  operator-sdk bundle validate ./bundle
-  ```
+Generate a bundle:
+
+```shell
+make bundle
+```
+
+Validate the bundle:
+
+```shell
+operator-sdk bundle validate ./bundle
+```
 
 ### Catalogs
 
 A **catalog** is a collection of Operator bundles, used by OLM to manage Operator installation and upgrades.
 
-- Build a catalog image:
-  ```shell
-  opm index add --bundles <bundle-image> --tag <catalog-image>
-  ```
-- Push the catalog image to a registry.
+Build a catalog image:
+
+```shell
+opm index add --bundles <bundle-image> --tag <catalog-image>
+```
+
+Push the catalog image to a registry.
 
 ### Deploying with OLM
 
-- Install OLM in your cluster:  
-  [OLM installation guide](https://olm.operatorframework.io/docs/getting-started/)
+- Install OLM in your cluster:  [OLM installation guide](https://olm.operatorframework.io/docs/getting-started/)
 - Deploy your Operator from a catalog using OLM.
-
----
 
 ## Managing ClusterServiceVersions (CSVs) and Upgrading Operators
 

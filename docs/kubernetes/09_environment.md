@@ -1,9 +1,8 @@
 # ENV variables
 
-Environment variables are a set of key value pairs that can be set inside
-a Pod's container as local env variables.
+Environment variables are a set of key value pairs that can be set inside a Pod's container as local env variables.
 
-## example
+## e.g.,
 
 ```yaml
 apiVersion: v1

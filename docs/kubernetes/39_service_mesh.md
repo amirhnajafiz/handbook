@@ -1,12 +1,10 @@
 # Service Mesh
 
-The use of Kubernetes to run workloads has become the standard in most organizations.  
-While this has many advantages, it also introduces some challenges—especially around managing communication between services.  
+The use of Kubernetes to run workloads has become the standard in most organizations. While this has many advantages, it also introduces some challenges—especially around managing communication between services.  
+
 Kubernetes abstracts away much of the underlying network, making it difficult to troubleshoot problems and ensure that services are communicating reliably and securely.
 
-**Service mesh** technologies offer a robust and effective solution to these challenges.  
-By adopting a sidecar approach, a service mesh provides a centralized way of managing service-to-service communication.  
-This approach brings a wide range of features such as:
+**Service mesh** technologies offer a robust and effective solution to these challenges. By adopting a sidecar approach, a service mesh provides a centralized way of managing service-to-service communication. This approach brings a wide range of features such as:
 
 - **Traffic management** (load balancing, traffic splitting, retries, timeouts)
 - **Observability** (metrics, tracing, logging)
@@ -14,8 +12,7 @@ This approach brings a wide range of features such as:
 - **Resilience** (circuit breaking, fault injection)
 - **Service discovery** and more
 
-Two of the leading service meshes for Kubernetes are **Istio** and **Linkerd**.  
-Both are graduated projects in the Cloud Native Computing Foundation (CNCF).
+Two of the leading service meshes for Kubernetes are **Istio** and **Linkerd**.  Both are graduated projects in the Cloud Native Computing Foundation (CNCF).
 
 Other open source service mesh tools include:
 
@@ -28,7 +25,9 @@ Other open source service mesh tools include:
 
 These platforms offer a variety of features to help improve the reliability, performance, and security of microservices-based applications.
 
-![](https://miro.medium.com/v2/resize:fit:1260/format:webp/1*dE01Th9iyq3VQUni9bC2_A.png)
+<div align="center">
+  <img src="https://miro.medium.com/v2/resize:fit:1260/format:webp/1*dE01Th9iyq3VQUni9bC2_A.png" width="500" />
+</div>
 
 ## Service Mesh Architecture
 
@@ -72,7 +71,7 @@ The Istio control plane consists of the following components:
 - You have only a few services and do not need advanced traffic management or security features.
 - You want to minimize operational complexity and resource overhead.
 
-## Further Reading & Links
+## References
 
 - [Medium Blog: Istio vs Linkerd Service Mesh Showdown 2023](https://medium.com/@onai.rotich/istio-vs-linkerd-service-mesh-showdown-2023-370937107452)
 - [Istio Documentation](https://istio.io/latest/docs/)

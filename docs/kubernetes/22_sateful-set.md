@@ -11,7 +11,7 @@ StatefulSets are valuable for applications that require one or more of the follo
 - Ordered, graceful deployment and scaling.
 - Ordered, automated rolling updates.
 
-## example
+## e.g.,
 
 ```yaml
 apiVersion: v1
@@ -65,11 +65,11 @@ spec:
           storage: 1Gi
 ```
 
-### ordinal index
+### Ordinal Index
 
 For a StatefulSet with N replicas, each Pod in the StatefulSet will be assigned an integer ordinal, that is unique over the Set. By default, pods will be assigned ordinals from 0 up through N-1. The StatefulSet controller will also add a pod label with this index: apps.kubernetes.io/pod-index.
 
-### stable network ID
+### Stable Network ID
 
 Each Pod in a StatefulSet derives its hostname from the name of the StatefulSet and the ordinal of the Pod. The pattern for the constructed hostname is $(statefulset name)-$(ordinal). The example above will create three Pods named web-0,web-1,web-2. A StatefulSet can use a Headless Service to control the domain of its Pods. The domain managed by this Service takes the form: $(service name).$(namespace).svc.cluster.local, where "cluster.local" is the cluster domain. As each Pod is created, it gets a matching DNS subdomain, taking the form: $(podname).$(governing service domain), where the governing service is defined by the serviceName field on the StatefulSet.
 
@@ -80,6 +80,6 @@ If you need to discover Pods promptly after they are created, you have a few opt
 - Query the Kubernetes API directly (for example, using a watch) rather than relying on DNS lookups.
 - Decrease the time of caching in your Kubernetes DNS provider (typically this means editing the config map for CoreDNS, which currently caches for 30 seconds).
 
-## links
+## References
 
 - [K8S statefulset](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)

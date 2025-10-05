@@ -147,7 +147,7 @@ dns:
   kubeadm token create --print-join-command
   ```
 
-## Further Reading
+## References
 
 - [kubeadm Documentation](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/)
 - [kubeadm Configuration Reference](https://kubernetes.io/docs/reference/config-api/kubeadm-config.v1beta3/)

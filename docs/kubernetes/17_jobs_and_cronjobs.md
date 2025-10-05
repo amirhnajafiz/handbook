@@ -1,19 +1,14 @@
 # Jobs & Cronjobs
 
-A Job creates one or more Pods and will continue to retry execution of the Pods until a specified number of them successfully
-terminate. As pods successfully complete, the Job tracks the successful completions.
-When a specified number of successful completions is reached, the task (ie, Job) is complete.
-Deleting a Job will clean up the Pods it created. Suspending a Job will delete its active Pods until the Job is resumed again.
+A Job creates one or more Pods and will continue to retry execution of the Pods until a specified number of them successfully terminate. As pods successfully complete, the Job tracks the successful completions.
 
-Finished Jobs are usually no longer needed in the system. Keeping them around in the system will put pressure on the API server.
-If the Jobs are managed directly by a higher level controller, such as CronJobs, the Jobs can be cleaned up by CronJobs based
-on the specified capacity-based cleanup policy.
+When a specified number of successful completions is reached, the task (ie, Job) is complete. Deleting a Job will clean up the Pods it created. Suspending a Job will delete its active Pods until the Job is resumed again.
 
-CronJob is meant for performing regular scheduled actions such as backups, report generation, and so on.
-One CronJob object is like one line of a crontab (cron table) file on a Unix system.
-It runs a job periodically on a given schedule, written in Cron format.
+Finished Jobs are usually no longer needed in the system. Keeping them around in the system will put pressure on the API server. If the Jobs are managed directly by a higher level controller, such as CronJobs, the Jobs can be cleaned up by CronJobs based on the specified capacity-based cleanup policy.
 
-## example
+CronJob is meant for performing regular scheduled actions such as backups, report generation, and so on. One CronJob object is like one line of a crontab (cron table) file on a Unix system. It runs a job periodically on a given schedule, written in Cron format.
+
+## e.g.,
 
 ```yaml
 apiVersion: batch/v1
@@ -53,7 +48,7 @@ spec:
           restartPolicy: OnFailure
 ```
 
-## links
+## References
 
 - [K8S Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/job/)
 - [K8S Cronjobs](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/)

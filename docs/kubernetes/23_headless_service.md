@@ -1,19 +1,14 @@
 # Headless service
 
-A headless Service is a type of Kubernetes Service that does not allocate a cluster IP address.
-Instead, a headless Service uses DNS to expose the IP addresses of the Pods that are associated with the Service.
-This allows you to connect directly to the Pods, instead of going through a proxy.
+A headless Service is a type of Kubernetes Service that does not allocate a cluster IP address. Instead, a headless Service uses DNS to expose the IP addresses of the Pods that are associated with the Service. This allows you to connect directly to the Pods, instead of going through a proxy.
 
 Headless service is a regular Kubernetes service where the spec. clusterIP is explicitly set to "None" and spec. type is set to "ClusterIP". Instead, SRV records are created for all the named ports of service's endpoints.
 
-A headless service in Kubernetes can be a useful tool for creating distributed applications.
-It allows you to directly access the individual pods in a service.
-This is useful in scenarios where you need to perform complex load-balancing.
+A headless service in Kubernetes can be a useful tool for creating distributed applications. It allows you to directly access the individual pods in a service. This is useful in scenarios where you need to perform complex load-balancing.
 
-Headless Services (without a cluster IP) Services are also assigned DNS A and/or AAAA records, with a name of the form my-svc.my-namespace.svc.cluster-domain.example.
-Unlike normal Services, this resolves to the set of IPs of all of the Pods selected by the Service.
+Headless Services (without a cluster IP) Services are also assigned DNS A and/or AAAA records, with a name of the form my-svc.my-namespace.svc.cluster-domain.example. Unlike normal Services, this resolves to the set of IPs of all of the Pods selected by the Service.
 
-## challanges
+## Challanges
 
 Deploying and replicating stateful applications poses the following challenges:
 
@@ -24,7 +19,7 @@ Deploying and replicating stateful applications poses the following challenges:
 - StatefulSet pods get fixed ordered names ($statefulsetname-$ordinal). For example, if you create a StatefulSet with a name of mongo with three replicas, the replicated pods get names mongo-0, mongo-1, and mongo-2.
 - Most importantly, the stateful workloads often has to reach a specific pod directly (for example, during database write operations) or have pod-pod communication, without load balancing.
 
-## example
+## e.g.,
 
 ```yaml
 apiVersion: v1 
@@ -42,7 +37,7 @@ spec:
    type: ClusterIP
 ```
 
-## links
+## References
 
 - [VMware Tanzu](https://docs.vmware.com/en/VMware-Tanzu-Service-Mesh/services/using-tanzu-service-mesh-guide/GUID-38865240-F238-4699-AE75-171EC494F192.html#:~:text=Headless%20service%20is%20a%20regular,named%20ports%20of%20service's%20endpoints.)
 - [Middleware inventory](https://www.middlewareinventory.com/blog/kubernetes-headless-service/)

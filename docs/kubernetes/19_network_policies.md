@@ -1,8 +1,8 @@
 # Network policies
 
 If you want to control traffic flow at the IP address or port level (OSI layer 3 or 4), then you might consider using Kubernetes NetworkPolicies for particular applications in your cluster.
-NetworkPolicies are an application-centric construct which allow you to specify how a pod is allowed to communicate with various network "entities" over the network.
-NetworkPolicies apply to a connection with a pod on one or both ends, and are not relevant to other connections.
+
+NetworkPolicies are an application-centric construct which allow you to specify how a pod is allowed to communicate with various network "entities" over the network. NetworkPolicies apply to a connection with a pod on one or both ends, and are not relevant to other connections.
 
 The entities that a Pod can communicate with are identified through a combination of the following 3 identifiers:
 
@@ -10,7 +10,7 @@ The entities that a Pod can communicate with are identified through a combinatio
 - Namespaces that are allowed
 - IP blocks (exception: traffic to and from the node where a Pod is running is always allowed, regardless of the IP address of the Pod or the node)
 
-## example
+## e.g.,
 
 ```yaml
 apiVersion: networking.k8s.io/v1
@@ -49,6 +49,6 @@ spec:
           port: 5978
 ```
 
-## links
+## References
 
 - [K8S network policy](https://kubernetes.io/docs/concepts/services-networking/network-policies/)

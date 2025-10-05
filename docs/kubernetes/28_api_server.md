@@ -24,6 +24,7 @@ The **Kube API Server** is the central management component of a Kubernetes clus
 ```shell
 kubectl get pods
 ```
+
 This command sends a request to the API server, which authenticates the user, retrieves the list of pods from etcd, and returns the result.
 
 ## Key Features
@@ -33,7 +34,7 @@ This command sends a request to the API server, which authenticates the user, re
 - Supports admission controllers for policy enforcement
 - Secure communication via TLS
 
-## Further Reading
+## References
 
 - [Kubernetes API Server Documentation](https://kubernetes.io/docs/concepts/overview/components/#kube-apiserver)
 - [API Access Control](https://kubernetes.io/docs/reference/access-authn-authz/)

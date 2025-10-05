@@ -25,7 +25,7 @@ Controllers are responsible for responding to cluster events, ensuring resources
 
 Each controller watches the cluster state through the API server. When it detects a difference between the desired and actual state, it takes action to reconcile them. For example, if a node goes down, the Node Controller will mark it as unavailable and trigger pod rescheduling.
 
-## Further Reading
+## References
 
 - [Kube Controller Manager Documentation](https://kubernetes.io/docs/concepts/architecture/controller/)
 - [Kubernetes Controllers](https://kubernetes.io/docs/concepts/architecture/controller/#kubernetes-controllers)

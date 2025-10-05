@@ -1,7 +1,6 @@
 # Operator Pattern
 
-Operators are software extensions to Kubernetes that make use of custom resources to manage applications and their components.  
-Operators follow Kubernetes principles, notably the control loop.
+Operators are software extensions to Kubernetes that make use of custom resources to manage applications and their components. Operators follow Kubernetes principles, notably the control loop.
 
 The Operator pattern consists of two major components:
 
@@ -56,7 +55,7 @@ The Operator would watch for `Memcached` resources and ensure a Deployment with 
 - **MongoDB, MySQL, and PostgreSQL Operators:** Manage database clusters.
 - **ElasticSearch Operator:** Manages ElasticSearch clusters.
 
-## Further Reading
+## References
 
 - [Kubernetes Operators Concepts](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/)
 - [Operator SDK Documentation](https://sdk.operatorframework.io/docs/)

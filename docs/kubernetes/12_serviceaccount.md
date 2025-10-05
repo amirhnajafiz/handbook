@@ -1,14 +1,12 @@
 # Service Accounts
 
-Kubernetes offers two distinct ways for clients that run within your cluster,
-or that otherwise have a relationship to your cluster's control plane to authenticate to the API server.
+Kubernetes offers two distinct ways for clients that run within your cluster, or that otherwise have a relationship to your cluster's control plane to authenticate to the API server.
 
-A service account provides an identity for processes that run in a Pod, and maps to a ServiceAccount object.
-When you authenticate to the API server, you identify yourself as a particular user.
-Kubernetes recognises the concept of a user, however, Kubernetes itself does not have a User API.
-Pods authenticate as a particular ServiceAccount (for example, default). There is always at least one ServiceAccount in each namespace.
+A service account provides an identity for processes that run in a Pod, and maps to a ServiceAccount object. When you authenticate to the API server, you identify yourself as a particular user.
 
-## example
+Kubernetes recognises the concept of a user, however, Kubernetes itself does not have a User API. Pods authenticate as a particular ServiceAccount (for example, default). There is always at least one ServiceAccount in each namespace.
+
+## e.g.,
 
 ```yaml
 apiVersion: v1
@@ -30,7 +28,7 @@ spec:
   automountServiceAccountToken: false
 ```
 
-## links
+## References
 
 - [K8S Service Account](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)
 - [K8S Authorization](https://kubernetes.io/docs/reference/access-authn-authz/authorization/)
