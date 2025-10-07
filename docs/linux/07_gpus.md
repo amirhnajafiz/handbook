@@ -128,3 +128,27 @@ This isolation is essential to:
 * Prevent resource contention
 * Ensure reliable performance
 * Avoid issues from shared GPU access across workloads
+
+## Useful Commands for Debugging
+
+Getting more GPU details:
+
+```bash
+nvidia-smi -q
+```
+
+Getting details of PCIe link:
+
+```bash
+sudo lspci -vvv -s 0000:60:00.0 | grep "LnkCap"
+```
+
+Mapping GT/s to PCIe Generations:
+
+| PCIe Generation | Signaling rate | Typical name | Encoding  | Effective data rate per lane | Approx. total for ×16 slot |
+| --------------- | -------------- | ------------ | --------- | ---------------------------- | -------------------------- |
+| Gen1            | 2.5 GT/s       | PCIe 1.0     | 8b/10b    | ~0.25 GB/s                   | ~4 GB/s                    |
+| Gen2            | 5.0 GT/s       | PCIe 2.0     | 8b/10b    | ~0.5 GB/s                    | ~8 GB/s                    |
+| **Gen3**        | **8.0 GT/s**   | **PCIe 3.0** | 128b/130b | **~0.985 GB/s**              | **~15.75 GB/s**            |
+| Gen4            | 16 GT/s        | PCIe 4.0     | 128b/130b | ~1.97 GB/s                   | ~31.5 GB/s                 |
+| Gen5            | 32 GT/s        | PCIe 5.0     | 128b/130b | ~3.94 GB/s                   | ~63 GB/s                   |
