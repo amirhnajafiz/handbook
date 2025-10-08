@@ -1,17 +1,13 @@
 # GPUs
 
-The process of configuring a Kubernetes cluster to support GPU-based workloads includes setting up the nodes, installing NVIDIA drivers and devices, adding the necessary Kubernetes plugins, and deploying the DCGM Exporter for monitoring.
+To use GPUs on your machines, you first need to install NVIDIA drivers on any computer (host) that has a GPU card. These drivers let your operating system recognize and communicate with the GPU hardware. 
 
-In this report, we assume that a Kubernetes cluster is already available, with nodes equipped with GPU cards and a Prometheus service running for metrics collection.
-
-## NVIDIA Drivers
-
-To use GPUs on your machines, you first need to install NVIDIA drivers on any computer (host) that has a GPU card. These drivers let your operating system recognize and communicate with the GPU hardware. You can install the drivers with these commands:
+You can install the drivers with these commands:
 
 ```bash
 sudo add-apt-repository ppa:graphics-drivers/ppa
 sudo apt-get update
-sudo apt install nvidia-driver-550
+sudo apt install nvidia-driver-<version> # e.g., 550
 ```
 
 After installing the driver, your system will be able to use the GPU for processing tasks. To verify the installation, run:
@@ -20,9 +16,13 @@ After installing the driver, your system will be able to use the GPU for process
 nvidia-smi
 ```
 
+The output shows the data of your GPU cards (reboot the system if you don't see any).
+
 ## NVIDIA Container Toolkit
 
-In Kubernetes, applications run inside containers using a container runtime like Docker or containerd. Therefore, you need to install additional toolkits to allow containers to access and use GPUs. The NVIDIA Container Toolkit connects the GPU driver with the containers and allows programs inside the container to use the GPU through CUDA (a platform for GPU computing).
+Applications run inside containers using a container runtime like Docker or containerd. Therefore, you need to install additional toolkits to allow containers to access and use GPUs. 
+
+The NVIDIA Container Toolkit connects the GPU driver with the containers and allows programs inside the container to use the GPU through CUDA (a platform for GPU computing).
 
 Install it using the following commands:
 
@@ -41,7 +41,7 @@ After installing the NVIDIA Container Toolkit, configure the container runtime (
 
 ```toml
 [plugins."io.containerd.grpc.v1.cri".containerd]
-    default_runtime_name = "nvidia"
+  default_runtime_name = "nvidia"
 ```
 
 Restart containerd for changes to take effect:
@@ -50,7 +50,7 @@ Restart containerd for changes to take effect:
 sudo systemctl restart containerd
 ```
 
-## NVIDIA Device Plugin
+## NVIDIA Device Plugin (For Kubernetes)
 
 Now that everything is installed on your nodes, enable Kubernetes to recognize and manage GPU resources using a device plugin. This plugin helps Kubernetes detect and schedule GPU resources correctly and runs as a DaemonSet on each GPU-enabled node.
 
@@ -62,7 +62,7 @@ kubectl apply -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/v0.1
 
 This command starts the plugin on each GPU-enabled node in your cluster.
 
-## DCGM Exporter
+## DCGM Exporter (For Kubernetes)
 
 As the final step of the configuration process, we need to install the **DCGM Exporter**. In the following sections, we will explain how this exporter works in more detail. For now, our focus is simply on deploying it in the cluster.
 
@@ -152,3 +152,11 @@ Mapping GT/s to PCIe Generations:
 | **Gen3**        | **8.0 GT/s**   | **PCIe 3.0** | 128b/130b | **~0.985 GB/s**              | **~15.75 GB/s**            |
 | Gen4            | 16 GT/s        | PCIe 4.0     | 128b/130b | ~1.97 GB/s                   | ~31.5 GB/s                 |
 | Gen5            | 32 GT/s        | PCIe 5.0     | 128b/130b | ~3.94 GB/s                   | ~63 GB/s                   |
+
+## GPU Cores
+
+- **CUDA Cores**: The term for Nvidia's GPU cores, which also encompasses their parallel programming platform for efficient use. Best at Logic, control flow, non-matrix tasks. Example usages: Simulations, analytics, batch jobs.
+- **Ray Tracing Cores**: Specialized units dedicated to rendering realistic light and shadow effects by calculating ray interactions with virtual objects, enhancing graphical fidelity. They are removed from newer GPU cards like A100 or H100.
+- **Tensor Cores**: Specialized cores in some NVIDIA GPUs that accelerate matrix operations, significantly speeding up deep learning and AI workloads by using mixed-precision computing. Best at Matrix math, neural network ops. Example usages: Model training, inference, AI workloads.
+
+A CUDA core can do whatever a Tensor core does. However, Tensor cores are faster in matrix multiplication. They are built to do a 4x4 matrix multiplication in fewer clocks than CUDA cores. Therefore, in deep learning tasks (e.g., vLLM inference) Tensor cores would be useful to decrease the computational overhead.
