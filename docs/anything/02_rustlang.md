@@ -1,4 +1,4 @@
-# Rust
+# Rust-eze
 
 - **Memory Safety:** Rust prevents common bugs like null pointer dereferences and data races at compile time, making your programs safer.
 - **High Performance:** Rust runs as fast as C or C++ and has no garbage collector, so you get maximum speed and control.

@@ -1,4 +1,4 @@
-# GPUs
+# Summary of GPUs
 
 To use GPUs on your machines, you first need to install NVIDIA drivers on any computer (host) that has a GPU card. These drivers let your operating system recognize and communicate with the GPU hardware. 
 
