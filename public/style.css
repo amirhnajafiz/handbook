@@ -9,12 +9,5 @@
     font-style: italic;
     color: var(--theme-color, #42b983);
     margin-top: 20px;
-}
-
-.edit-time {
-    font-size: 0.6rem !important;
-    font-style: italic;
-    color: var(--theme-color, #42b983);
-    margin-top: 10px;
-    margin-bottom: -20px;
+    margin-bottom: -2%;
 }
