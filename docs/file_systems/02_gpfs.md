@@ -77,6 +77,46 @@ mmstartup -N NodesList
 
 You can use the `mmgetstate -N NodesList` command to verify that the GPFS software is running on these nodes.
 
+### Filesets
+
+List all filesets:
+
+```sh
+mmlsfs all
+```
+
+Get filesets of an specific device:
+
+```sh
+mmlsfileset [device] -L
+```
+
+Create a fileset:
+
+```sh
+mmcrfileset [device] [name] --inode-space new
+```
+
+Link the fileset to a path:
+
+```sh
+mmlinkfileset [device] [name] -J [path]
+```
+
+### Quota
+
+Set quota:
+
+```sh
+mmsetquota device:name --block 16:16 --files 32:32
+```
+
+Check quota:
+
+```sh
+mmlsquota -j [name] [device]
+```
+
 ### Export services
 
 Export a GPFS file system using NFS:
@@ -107,4 +147,10 @@ Check NFS service status:
 
 ```sh
 mmnfs service list
+```
+
+Use the exported fileset:
+
+```sh
+mount -f nfs IP:/path /local-path/
 ```
