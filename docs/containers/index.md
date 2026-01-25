@@ -1,5 +1,11 @@
 # Containers
 
+<div class="dedication">
+I want to dedicate this page to Parham Alvani!
+</div>
+
+---
+
 A container is a lightweight, standalone, and executable package that includes everything needed to run a piece of software: code, runtime, system tools, libraries, and settings. Containers ensure that applications run consistently across different computing environments.
 
 ## How they work?

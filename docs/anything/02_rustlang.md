@@ -1,5 +1,11 @@
 # Rust-eze
 
+<div class="dedication">
+I want to dedicate this page to Lightning McQueen!
+</div>
+
+---
+
 - **Memory Safety:** Rust prevents common bugs like null pointer dereferences and data races at compile time, making your programs safer.
 - **High Performance:** Rust runs as fast as C or C++ and has no garbage collector, so you get maximum speed and control.
 - **Great Tooling:** With Cargo for building and managing dependencies, Rust projects are easy to set up and maintain.

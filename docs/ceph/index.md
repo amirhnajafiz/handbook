@@ -1,5 +1,11 @@
 # Ceph
 
+<div class="dedication">
+I want to dedicate this page to SnappCloud team!
+</div>
+
+---
+
 **Ceph** is an open-source, software-defined, distributed storage system that provides object, block, and file storage in a single, scalable, and resilient platform. It decouples data from hardware, allowing organizations to build highly available and durable storage clusters on commodity hardware.
 
 Ceph uses the **CRUSH** algorithm to dynamically distribute data across storage nodes, enabling self-healing, self-rebalancing, and petabyte-scale operations.

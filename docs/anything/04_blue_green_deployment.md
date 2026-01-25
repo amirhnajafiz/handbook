@@ -1,5 +1,11 @@
 # Blue & Green Deployment
 
+<div class="dedication">
+I want to dedicate this page to Elizabeth Hargrave (WingSpan creator)!
+</div>
+
+---
+
 **Blue-Green Deployment** is a deployment pattern that reduces downtime and risk by running two identical production environments, called **blue** and **green**. At any given time, only one environment (blue or green) is live and serving production traffic.
 
 <div align="center">

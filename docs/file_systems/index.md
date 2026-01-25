@@ -1,5 +1,11 @@
 # File Systems
 
+<div class="dedication">
+I want to dedicate this page to Prof. Erez Zadok!
+</div>
+
+---
+
 File systems are a crucial part of any operating system, providing a structured way to store, organize, and manage data on storage devices such as hard drives, SSDs, and USB drives.
 
 Essentially, a file system **acts as a bridge between the operating system and the physical storage hardware**, allowing users and applications to create, read, update, and delete files in an organized and efficient manner. In computing, a file system -- sometimes written filesystem -- is a logical and physical system for organizing, managing and accessing the files and directories on a device's solid-state drive (SSD), hard-disk drive (HDD) or other media.

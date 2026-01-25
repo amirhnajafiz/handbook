@@ -1,5 +1,11 @@
 # SSH
 
+<div class="dedication">
+I want to dedicate this page to Prof. R Sekar!
+</div>
+
+---
+
 **SSH (Secure Shell)** is a protocol for securely connecting to remote systems over a network. It provides encrypted communication and is commonly used for remote login, command execution, and file transfer.
 
 ## Basic SSH Usage

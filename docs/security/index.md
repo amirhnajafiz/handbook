@@ -1,5 +1,11 @@
 # Computer Systems Security
 
+<div class="dedication">
+I want to dedicate this page to Prof. R Sekar!
+</div>
+
+---
+
 Security is the degree of resistance to, or protection from, harm. It applies to any vulnerable and valuable asset.
 
 Computer security is about __CIA__:
