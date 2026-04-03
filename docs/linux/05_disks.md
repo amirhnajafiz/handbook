@@ -32,6 +32,12 @@ One good command to check hidden files is `lsof` (list open files). This can hel
 
 > Also if you have docker on a machine, you can use `docker system df`. Docker often takes too much disk space.
 
+Also you might have unmounted loop devices somewhere in the root disk. You can see them using:
+
+```
+sudo losetup -a
+```
+
 ## Ultimate solution
 
 Both `du` and `ncdu` take too much time (overhead and permissions issues). Because, we you start scanning from root, you have too many virtual filesystems like /proc or /sys. You also might have separate partiotions, like having /home on NFS. The partitions are actully causing this overhead and permissions issues.
