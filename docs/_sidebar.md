@@ -85,6 +85,7 @@
   - [NFS](linux\02_nfs.md)
   - [Sed](linux\03_sed.md)
   - [FIO](linux\04_fio.md)
+  - [Disks](linux\05_disks.md)
 - [Logging](logging/index.md)
   - [Grafana Loki](logging\01_loki.md)
   - [Grafana Alloy](logging\02_alloy.md)
