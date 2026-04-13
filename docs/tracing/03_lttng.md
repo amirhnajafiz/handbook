@@ -16,8 +16,9 @@ While eBPF focuses on using tracepoints and kprobes for dynamic instrumentation,
 Install the tools:
 
 ```bash
-sudo apt update
-sudo apt install lttng-tools lttng-modules-dkms babeltrace2
+sudo apt-add-repository ppa:lttng/stable-2.15
+sudo apt-get update
+sudo apt install lttng-tools liblttng-ust-dev lttng-modules-dkms babeltrace2
 ```
 
 > babeltrace2 is used to convert the binary trace files into readable text for counting.
