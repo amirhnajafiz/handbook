@@ -1,5 +1,17 @@
 # Disks
 
+## Quick Description (QD)
+
+This page covers inspecting disks, creating filesystems, and tracking down disk space usage on Linux.
+
+## Installation
+
+_Nothing here yet._
+
+## Useful Tips/Commands (UToC)
+
+### Listing Disks
+
 To see only physical disks (no partitions), run:
 
 ```sh
@@ -12,20 +24,22 @@ If you want to see more details, run:
 sudo lshw -class disk
 ```
 
-Before using a disk, create a new file system.
+### Preparing a Disk
+
+Before using a disk, create a new filesystem.
 
 ```sh
-sudo mkfs.ext4 /dev/sdX#
+sudo mkfs.ext4 /dev/sdXN
 ```
 
-The mount it.
+Replace `sdXN` with your partition (e.g., `sdb1`). This erases the data on it, so double check the name with `lsblk` first. Then mount it.
 
 ```sh
 sudo mkdir -p /mnt/device
-sudo mount /dev/sdX# /mnt/device
+sudo mount /dev/sdXN /mnt/device
 ```
 
-## Capacity check
+### Capacity Check
 
 A quick command to check free space on disks is:
 
@@ -44,33 +58,37 @@ sudo du -xhd1 / | sort -hr | head -20
 # 12G /usr
 ```
 
-* du stands for disk usage
-* the x flag tells to stay on same filesystem only
-* the h flag tells to export as human readable
-* the d1 flag tells one level deep
+- `du` stands for disk usage.
+- The `-x` flag tells it to stay on the same filesystem only.
+- The `-h` flag tells it to print human-readable sizes.
+- The `-d1` flag (`--max-depth=1`) tells it to go one level deep.
+- `sort -hr` sorts human-readable sizes, biggest first.
 
-> An alternative solution is `ncdu`, which scans the disk usage.
+> An alternative is `ncdu`, an interactive disk usage browser.
 
-## Hidden files
+### Hidden Files
 
-Often `du` output doesn't match with `df` output. In that case, you may be facing with hidden files.
+Often the `du` output doesn't match the `df` output. In that case, space may be held by files that `du` cannot see:
 
-One good command to check hidden files is `lsof` (list open files). This can help you track open files in memory.
+- Files that were deleted but are still open by a running process. The space is freed only when the process closes them or exits. List them with `lsof` (list open files):
 
-> Also if you have docker on a machine, you can use `docker system df`. Docker often takes too much disk space.
+```sh
+sudo lsof +L1
+```
 
-Also you might have unmounted loop devices somewhere in the root disk. You can see them using:
+- Files hidden under a mount point: if you wrote data into `/mnt/x` before mounting something on it, that data is still on the root disk but invisible. See the bind mount trick below.
+- Docker data. If you have Docker on a machine, `docker system df` shows how much space images, containers and volumes take.
+- Loop devices backed by big files. You can see them using:
 
 ```sh
 sudo losetup -a
-sudo losetup /dev/loop1 /mnt/loop1
 ```
 
-## Ultimate solution
+### Ultimate Solution
 
-Both `du` and `ncdu` take too much time (overhead and permissions issues). Because, we you start scanning from root, you have too many virtual filesystems like /proc or /sys. You also might have separate partiotions, like having /home on NFS. The partitions are actully causing this overhead and permissions issues.
+Both `du` and `ncdu` take too much time (overhead and permission issues). When you start scanning from root, you have too many virtual filesystems like `/proc` or `/sys`. You might also have separate partitions, like having `/home` on NFS. The partitions are actually causing this overhead and these permission issues.
 
-A good solution is to use bind mount to mount your root filesystem into a new mount point. By using bind, the system will automatically ignore separate partitions. This results in having the actull files in your root disk mirrored in a new mount point.
+A good solution is to use a bind mount to mount your root filesystem onto a new mount point. A plain bind mount (`-o bind`, not recursive) does not carry the other filesystems mounted below `/`, so `/proc`, `/sys` and separate partitions are left out. This results in having only the actual files of your root disk mirrored in the new mount point, including any files hidden under other mount points.
 
 ```sh
 sudo mkdir /mnt/os
@@ -78,4 +96,19 @@ sudo mount -o bind / /mnt/os
 sudo du -sh /mnt/os/* | sort -h
 ```
 
-This would return a response in few seconds.
+This returns a response in a few seconds. When you are done, run `sudo umount /mnt/os`.
+
+## Examples (e.g.,)
+
+_Nothing here yet._
+
+## References
+
+- [lsblk(8)](https://man7.org/linux/man-pages/man8/lsblk.8.html)
+- [mke2fs(8)](https://man7.org/linux/man-pages/man8/mke2fs.8.html)
+- [df(1)](https://man7.org/linux/man-pages/man1/df.1.html)
+- [du(1)](https://man7.org/linux/man-pages/man1/du.1.html)
+- [lsof(8)](https://man7.org/linux/man-pages/man8/lsof.8.html)
+- [losetup(8)](https://man7.org/linux/man-pages/man8/losetup.8.html)
+- [mount(8)](https://man7.org/linux/man-pages/man8/mount.8.html) (see "Bind mounts")
+- [docker system df](https://docs.docker.com/reference/cli/docker/system/df/)

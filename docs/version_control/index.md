@@ -4,9 +4,7 @@
 I want to dedicate this page to Linus Torvalds!
 </div>
 
----
-
-Version controls are tools build for maintaining the code base changes over time.
+Version control systems are tools built for tracking changes to a code base over time.
 
 This section covers:
 

@@ -4,14 +4,12 @@
 I want to dedicate this page to Parham Alvani!
 </div>
 
----
-
 A container is a lightweight, standalone, and executable package that includes everything needed to run a piece of software: code, runtime, system tools, libraries, and settings. Containers ensure that applications run consistently across different computing environments.
 
-## How they work?
+## How They Work
 
 - **Isolation:** Containers use operating system features (like namespaces and cgroups in Linux) to isolate processes and resources from each other.
-- **Images:** Containers are created from images, which are read-only templates that define the container’s contents.
+- **Images:** Containers are created from images, which are read-only templates that define the container's contents.
 - **Portability:** Since containers include all dependencies, they can run on any system with a compatible container runtime (like Docker or containerd).
 - **Efficiency:** Containers share the host OS kernel, making them more lightweight and faster to start than virtual machines.
 
@@ -24,7 +22,7 @@ A container is a lightweight, standalone, and executable package that includes e
 ## Common Container Tools
 
 - **Docker:** The most popular container platform for building, running, and managing containers.
-- **Podman:** A daemonless container engine for developing, managing, and running OCI Containers.
+- **Podman:** A daemonless container engine for developing, managing, and running OCI containers.
 - **Kubernetes:** An orchestration platform for managing large numbers of containers in production.
 
 ## Typical Use Cases

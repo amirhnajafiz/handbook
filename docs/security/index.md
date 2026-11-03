@@ -11,10 +11,10 @@ Security is the degree of resistance to, or protection from, harm. It applies to
 Computer security is about __CIA__:
 
 - __Confidentiality__: Keeping data hidden and protected from unauthorized disclosure.
-- __Integrity__: Data and programs are modified in specified and authorized ways. (meaning that they are honest)
+- __Integrity__: Data and programs are modified in specified and authorized ways (meaning that they are honest).
 - __Availability__: Systems and networks are available for use by legitimate users.
 
-## Why computer security it hard?
+## Why is Computer Security Hard?
 
 - Security often is not a primary consideration.
 - Feature-rich systems tend to be complex.

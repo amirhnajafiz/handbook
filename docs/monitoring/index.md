@@ -6,8 +6,8 @@ I want to dedicate this page to Snapp!
 
 ---
 
-* Grafana
-* Grafana Loki
-* Grafana Alloy
-* Prometheus
-* Prometheus AlertManager
+- Grafana
+- Grafana Loki
+- Grafana Alloy
+- Prometheus
+- Prometheus Alertmanager

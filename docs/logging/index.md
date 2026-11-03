@@ -6,7 +6,7 @@ I want to dedicate this page to Tom Hiddleston (aka Loki)!
 
 ---
 
-This section is dedicated to Log collecting and processing in Kubernetes clusters. These components and operators are a part of the Kubernetes monitoring stack.
+This section is dedicated to log collection and processing in Kubernetes clusters. These components and operators are part of the Kubernetes monitoring stack.
 
 Content includes:
 

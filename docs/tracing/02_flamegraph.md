@@ -1,16 +1,20 @@
-# eBPF FlameGraph
+# FlameGraph
 
-A FlameGraph is a visualization tool for profiling software performance, especially useful for understanding stack traces from CPU, memory, or I/O profiling.
+## Quick Description (QD)
 
-## Setup
+A FlameGraph is a visualization of profiled stack traces, invented by Brendan Gregg. Each box is a function, the width of a box is proportional to how often it appeared in the sampled stacks (so wide boxes are where the time goes), the y-axis is the stack depth, and the x-axis is sorted alphabetically (it is **not** time). It works with any data that can be turned into folded stacks: CPU, off-CPU, memory, or I/O profiling.
 
-Clone FlameGraph repository:
+## Installation
+
+Clone the FlameGraph repository:
 
 ```sh
 git clone https://github.com/brendangregg/FlameGraph.git
 ```
 
-## Convert traces to FG output
+## Useful Tips/Commands (UToC)
+
+### Convert Traces to FlameGraph Output
 
 ```sh
 # Save bpftrace output
@@ -23,32 +27,18 @@ sudo bpftrace ext4.bt > out.txt
 ./flamegraph.pl out.folded > flamegraph.svg
 ```
 
-### Creating a folded version to raw data
+### Profile CPU with perf
 
 ```sh
-cat out.txt \
-  | sed -e 's/^@\[/STACK:/' -e 's/\]:/ /' \
-  | awk '
-    /^STACK:/ {
-      # Replace commas and spaces after the tag
-      gsub(/^STACK:/, "")
-      gsub(/,/, "")
-      gsub(/^[ \t]+/, "")
-      stack=$0
-      count=""
-    }
-    /^[ \t]/ {
-      # Stack line continuation
-      gsub(/^[ \t]+/, "")
-      stack=stack ";" $0
-    }
-    /^[^ \t]/ && $NF ~ /^[0-9]+$/ {
-      # Last line with count
-      count=$NF
-      print stack, count
-    }
-  ' > out.folded
+sudo perf record -F 99 -a -g -- sleep 30
+sudo perf script | ./stackcollapse-perf.pl | ./flamegraph.pl > cpu.svg
 ```
+
+Each `stackcollapse-*.pl` script in the repository converts the output of a different profiler (perf, bpftrace, DTrace, ...) to the folded format, so there is no need to write the conversion by hand.
+
+## Examples (e.g.,)
+
+Example of a folded stack line (frames separated by `;`, then a space and the sample count):
 
 ```txt
 write:ext4_file_write_iter;ext4_file_write_iter+1;vfs_iter_write+188;lo_write_simple.isra.0+294;do_req_filebacked+387;loop_process_work+185;loop_workfn+29;process_one_work+388;worker_thread+774;kthread+242;ret_from_fork+71;ret_from_fork_asm+27 12492
@@ -56,4 +46,5 @@ write:ext4_file_write_iter;ext4_file_write_iter+1;vfs_iter_write+188;lo_write_si
 
 ## References
 
-- [https://github.com/brendangregg/FlameGraph](https://github.com/brendangregg/FlameGraph)
+- [FlameGraph repository](https://github.com/brendangregg/FlameGraph)
+- [Flame Graphs (Brendan Gregg)](https://www.brendangregg.com/flamegraphs.html)
