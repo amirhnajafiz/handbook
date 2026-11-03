@@ -4,6 +4,8 @@
 I want to dedicate this page to Lightning McQueen!
 </div>
 
+---
+
 ## Quick Description (QD)
 
 - **Memory safety:** Rust's ownership model prevents common bugs like use-after-free, dangling references, and data races at compile time (there is no null; absence is expressed with `Option`).

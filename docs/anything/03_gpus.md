@@ -4,6 +4,8 @@
 I want to dedicate this page to my PhD advisor, Prof. Erez Zadok!
 </div>
 
+---
+
 ## Quick Description (QD)
 
 ### GPU Cores

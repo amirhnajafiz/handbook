@@ -4,6 +4,7 @@ Checks every docs/<section>[/<subsection>]/NN_name.md for:
   - snake_case, two-digit-prefixed filename
   - exactly one H1
   - the template's H2 sections, in order, with the exact heading text
+A dedication, when present, must be followed by a --- line.
 Warns when the template's dedication placeholder was left in place.
 index.md files and sections listed in scripts/.sideignore are skipped.
 """
@@ -15,6 +16,7 @@ DOCS = "docs"
 TEMPLATE = "templates/page.md"
 NAME_RE = re.compile(r"^\d{2}_[a-z0-9]+(_[a-z0-9]+)*\.md$")
 PLACEHOLDER = "Dedication section ..."
+DEDICATION_RE = re.compile(r'<div class="dedication">.*?</div>\s*\n---\s*\n', re.S)
 
 
 def headings(text: str):
@@ -63,6 +65,8 @@ def main() -> int:
             found = [t for lvl, t in hs if lvl == 2]
             if found != expected:
                 errors.append(f"{path}: H2 sections must be {expected}, found {found}")
+            if '<div class="dedication">' in text and not DEDICATION_RE.search(text):
+                errors.append(f"{path}: dedication must be followed by a --- line")
             if PLACEHOLDER in text:
                 warnings.append(f"{path}: dedication placeholder still present")
 

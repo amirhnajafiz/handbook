@@ -4,6 +4,8 @@
 I want to dedicate this page to Elizabeth Hargrave (Wingspan creator)!
 </div>
 
+---
+
 ## Quick Description (QD)
 
 **Blue-Green Deployment** is a deployment pattern that reduces downtime and risk by running two identical production environments, called **blue** and **green**. At any given time, only one environment (blue or green) is live and serving production traffic.

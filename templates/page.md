@@ -4,6 +4,8 @@
 Dedication section ...
 </div>
 
+---
+
 ## Quick Description (QD)
 
 ## Installation
