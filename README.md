@@ -9,7 +9,7 @@ Commands, configs, concepts, and war stories, written down once so I never have 
 
 [![Site](https://img.shields.io/badge/read-the%20handbook-4caf50?style=for-the-badge)](https://amirhnajafiz.github.io/handbook/)
 
-![GitHub Tag](https://img.shields.io/github/v/tag/amirhnajafiz/handbook?style=for-the-badge&color=2196f3)
+![GitHub Tag](https://img.shields.io/github/v/tag/amirhnajafiz/handbook?sort=semver&style=for-the-badge&color=2196f3)
 ![CI](https://img.shields.io/github/actions/workflow/status/amirhnajafiz/handbook/ci.yml?style=for-the-badge&label=CI&color=ff9800)
 ![Deploy](https://img.shields.io/github/actions/workflow/status/amirhnajafiz/handbook/static.yml?style=for-the-badge&label=Deploy&color=9c27b0)
 ![GitHub top language](https://img.shields.io/github/languages/top/amirhnajafiz/handbook?style=for-the-badge&color=e91e63)
