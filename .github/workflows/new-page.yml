@@ -1,0 +1,37 @@
+name: New page
+
+# Actions tab -> "New page" -> Run workflow.
+# Creates a page from templates/page.md and opens a pull request for it.
+on:
+  workflow_dispatch:
+    inputs:
+      section:
+        description: "Section directory under docs/ (created if missing), e.g. linux"
+        required: true
+      title:
+        description: "Page title, e.g. Systemd"
+        required: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  create:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create page and regenerate sidebar
+        env:
+          SECTION: ${{ inputs.section }}
+          TITLE: ${{ inputs.title }}
+        run: python3 scripts/new_page.py "$SECTION" "$TITLE"
+      - name: Open pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: new-page/${{ github.run_id }}
+          commit-message: "add: ${{ inputs.title }} page to ${{ inputs.section }}"
+          title: "add: ${{ inputs.title }} (${{ inputs.section }})"
+          body: |
+            New page generated from `templates/page.md`.
+            Fill in the sections, then merge and tag a release to deploy.

@@ -10,8 +10,11 @@ def load_sideignore() -> set:
         return {line.strip() for line in f if line.strip() and not line.startswith('#')}
 
 def list_directories(path: str) -> list:
-    tmp = [entry for entry in os.listdir(path) if os.path.isdir(os.path.join(path, entry))]
-    return [entry for entry in tmp if entry not in load_sideignore()]
+    ignored = load_sideignore()
+    return sorted(
+        entry for entry in os.listdir(path)
+        if os.path.isdir(os.path.join(path, entry)) and entry not in ignored and entry != "images"
+    )
 
 def link_generator(path: str, prefix: str) -> list:
     files = [entry for entry in os.listdir(path) if os.path.isfile(os.path.join(path, entry))]
@@ -33,29 +36,31 @@ def get_markdown_title(md_path: str) -> str:
         pass
     return os.path.splitext(os.path.basename(md_path))[0]
 
+def section_lines(root: str, directory: str, depth: int) -> list:
+    """Sidebar entries for a section: its index, its pages, then its sub-sections."""
+    dir_path = os.path.join(root, directory)
+    indent = "  " * depth
+
+    # section title comes from its index.md heading
+    title = get_markdown_title(os.path.join(dir_path, "index.md"))
+    lines = [f"{indent}- [{title}]({directory}/index.md)"]
+
+    for md_file in link_generator(dir_path, directory):
+        lines.append(f"{indent}  - [{get_markdown_title(os.path.join(root, md_file))}]({md_file})")
+
+    for sub in list_directories(dir_path):
+        for line in section_lines(root, os.path.join(directory, sub), depth + 1):
+            lines.append(line)
+
+    return lines
+
 def main():    
     path = "docs"
     output_file = os.path.join(path, "_sidebar.md")
-    
-    # find all directories
-    directories = list_directories(path)
 
     lines = ["- [Home](home.md)"]
-
-    # add directories and their markdown files as children
-    for directory in sorted(directories):
-        dir_path = os.path.join(path, directory)
-        md_files = link_generator(dir_path, directory)
-
-        name = directory.replace('_', '  ')
-        name = ' '.join([x.capitalize() for x in name.split(" ")])
-        
-        # use directory name as the parent title
-        lines.append(f"- [{name}]({directory}/index.md)")
-        for md_file in md_files:
-            md_path = os.path.join(path, md_file)
-            title = get_markdown_title(md_path)
-            lines.append(f"  - [{title}]({md_file})")
+    for directory in list_directories(path):
+        lines.extend(section_lines(path, directory, 0))
 
     # write to sidebar.md
     with open(output_file, "w", encoding="utf-8") as f:

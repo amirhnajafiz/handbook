@@ -29,6 +29,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Validate pages
+        run: python3 scripts/check_pages.py
+      - name: Generate sidebar
+        run: python3 scripts/side_generator.py
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact

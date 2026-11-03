@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check pages follow the template
+        run: python3 scripts/check_pages.py
+      - name: Check sidebar is up to date
+        run: |
+          python3 scripts/side_generator.py
+          git diff --exit-code docs/_sidebar.md || {
+            echo "::error::docs/_sidebar.md is stale. Run 'make sidebar' and commit."
+            exit 1
+          }

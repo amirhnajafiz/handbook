@@ -11,6 +11,20 @@ The Handbook solves this problem by providing a unified, searchable interface wh
 
 It's essentially a personalized knowledge base that helps me retain and retrieve important information more efficiently, boosting my productivity and reducing time spent re-learning or re-searching things I already encountered.
 
+## Adding a page
+
+Every page follows [`templates/page.md`](templates/page.md).
+
+```sh
+make new SECTION=linux TITLE="Systemd"   # creates docs/linux/NN_systemd.md and updates the sidebar
+make check                               # validate filenames and template sections
+make serve                               # preview at http://localhost:3000
+```
+
+Or use the **New page** workflow in the GitHub Actions tab, which opens a pull request with the generated page.
+
+CI (`.github/workflows/ci.yml`) fails a pull request if a page does not match the template or if `docs/_sidebar.md` is stale. The deploy workflow validates and regenerates the sidebar before publishing.
+
 ## Contribution
 
 Open pull requests and mention me (send an email if you didn't get any response within a week).
