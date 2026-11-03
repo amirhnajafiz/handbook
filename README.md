@@ -24,7 +24,7 @@ When I hit a technical problem, I usually end up asking ChatGPT or searching Sta
 
 ## How it works
 
-The site is plain Markdown rendered in the browser by [Docsify](https://docsify.js.org). There is no build step for the pages themselves: search, code copy buttons, syntax highlighting, and KaTeX math all come from Docsify plugins loaded in [`index.html`](index.html).
+The site is plain Markdown rendered in the browser by [Docsify](https://docsify.js.org). There is no build step for the pages themselves: search, code copy buttons, syntax highlighting, KaTeX math, and Mermaid diagrams (write them as ` ```mermaid ` code blocks) all come from Docsify plugins loaded in [`index.html`](index.html).
 
 ```text
 docs/
